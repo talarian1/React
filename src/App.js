@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Person from './Person/Person';
-import './App.css';
+import classes from'./App.css';
 
 
 class App extends Component {
@@ -41,16 +41,8 @@ togglePersonsHandler = () =>
   this.setState({showPersons: !this.state.showPersons});
 }
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1x solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-     
-    };
-
+ 
+    let btnClass='';
       let persons=null;
       if(this.state.showPersons){
         persons = (
@@ -64,24 +56,24 @@ togglePersonsHandler = () =>
             })}
          </div>
         );
-        style.backgroundColor = 'red';
-      
+        
+      btnClass = classes.Red;
       }
-      let classes =[] //['red', 'bold'].join(' ');
+      let assignedClasses =[] //['red', 'bold'].join(' ');
       if (this.state.persons.length <= 2){
-        classes.push('red');
+        assignedClasses.push(classes.red);
       }
       if(this.state.persons.length <=1){
-        classes.push('bold');
+        assignedClasses.push(classes.bold);
       }
     return (
       
-      <div className="App">
+      <div className={classes.App}>
        <h1>Hi I'm a App</h1>       
-       <p className={classes.join(' ')}> Ravendb is the best</p>
+       <p className={assignedClasses.join(' ')}> Ravendb is the best</p>
        <button
-       style={style}
-       onClick={ this.togglePersonsHandler}>Hide Names</button>
+       className={btnClass}
+        onClick={ this.togglePersonsHandler}>Hide Names</button>
       {persons}
        </div>
       
