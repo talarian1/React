@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium,{ StyleRoot } from 'radium';
+
 import Person from './Person/Person';
 import './App.css';
 
@@ -48,10 +48,7 @@ togglePersonsHandler = () =>
       border: '1x solid blue',
       padding: '8px',
       cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
+     
     };
 
       let persons=null;
@@ -68,10 +65,7 @@ togglePersonsHandler = () =>
          </div>
         );
         style.backgroundColor = 'red';
-        style[':hover'] = {
-          backgroundColor: 'salmon',
-          color: 'black'
-        }
+      
       }
       let classes =[] //['red', 'bold'].join(' ');
       if (this.state.persons.length <= 2){
@@ -81,7 +75,7 @@ togglePersonsHandler = () =>
         classes.push('bold');
       }
     return (
-      <StyleRoot>
+      
       <div className="App">
        <h1>Hi I'm a App</h1>       
        <p className={classes.join(' ')}> Ravendb is the best</p>
@@ -90,9 +84,9 @@ togglePersonsHandler = () =>
        onClick={ this.togglePersonsHandler}>Hide Names</button>
       {persons}
        </div>
-       </StyleRoot>
+      
     );
   }
 }
 
-export default Radium(App);
+export default App;
