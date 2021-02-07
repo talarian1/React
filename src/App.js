@@ -5,7 +5,7 @@ import './App.css';
 
 
 class App extends Component {
-
+// a
 state = {
   persons: [
     {id:'1',name: 'max', age: 28},
@@ -48,7 +48,7 @@ togglePersonsHandler = () =>
       border: '1x solid blue',
       padding: '8px',
       cursor: 'pointer',
-     
+
     };
 
       let persons=null;
@@ -57,15 +57,15 @@ togglePersonsHandler = () =>
           <div>
             {this.state.persons.map((person, index) => {
               return <Person click={() => this.deletePersonHandler(index)}
-              name={person.name} 
-              age={person.age} 
-              key={person.id} 
+              name={person.name}
+              age={person.age}
+              key={person.id}
               changed={(event) => this.nameChanedHandler(event,person.id)}/>
             })}
          </div>
         );
         style.backgroundColor = 'red';
-      
+
       }
       let classes =[] //['red', 'bold'].join(' ');
       if (this.state.persons.length <= 2){
@@ -75,16 +75,16 @@ togglePersonsHandler = () =>
         classes.push('bold');
       }
     return (
-      
+
       <div className="App">
-       <h1>Hi I'm a App</h1>       
+       <h1>Hi I'm a App</h1>
        <p className={classes.join(' ')}> Ravendb is the best</p>
        <button
        style={style}
        onClick={ this.togglePersonsHandler}>Hide Names</button>
       {persons}
        </div>
-      
+
     );
   }
 }
