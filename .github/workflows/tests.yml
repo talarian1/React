@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Npm Install
+      run:  npm i
     - name: Setup CLI 
       uses: jfrog/setup-jfrog-cli@v2
       env:
