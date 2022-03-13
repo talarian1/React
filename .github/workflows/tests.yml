@@ -11,8 +11,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Lint
-      run: go vet -v ./...
     - name: Setup CLI 
       uses: jfrog/setup-jfrog-cli@v2
       env:
