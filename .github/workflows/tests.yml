@@ -9,18 +9,15 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.17.x
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Lint
       run: go vet -v ./...
-    - name: Audit
-    - uses: jfrog/setup-jfrog-cli@v2
+    - name: Setup CLI 
+      uses: jfrog/setup-jfrog-cli@v2
       env:
           JF_ARTIFACTORY_1: ${{ secrets.JF_SECRET_ENV_1 }}
-    - run: |
+    - name: Audit
+      run: |
           # Audit your project
           jfrog audit
